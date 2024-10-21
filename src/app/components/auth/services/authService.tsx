@@ -9,9 +9,6 @@ export const login = async (email: string, password: string) => {
       },
       body : JSON.stringify({ email, password })
     })
-    if (!response.ok) {
-      alert('Error en login')
-    }
     const data = await response.json()
     console.log('respuesta login: ', data);
     return data
