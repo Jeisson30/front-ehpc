@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState } from 'react';
-import { TextField, Button, Typography } from '@mui/material';
-import { login } from './auth/services/authService';
+import React, { useState } from 'react'
+import { TextField, Button, Typography } from '@mui/material'
+import { login } from './auth/services/authService'
 
 const Login = () => {
 
@@ -16,10 +16,10 @@ const Login = () => {
     try {
 
       const result = await login( email, password )
-      console.log('respuesta: ', result.message);
+      console.log('respuesta: ', result.message)
       
     } catch (error) {
-        console.log('error en el login: ', error);       
+        console.log('error en el login: ', error)       
     }
 
   };

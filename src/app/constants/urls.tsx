@@ -5,5 +5,5 @@ const API_PATHS = {
 }
 
 export const AUTHS_URL = {
-  LOGIN : `${BASE_URL}${API_PATHS.AUTH}/login`,
+  LOGIN : `${BASE_URL}${API_PATHS.AUTH}/login`
 }

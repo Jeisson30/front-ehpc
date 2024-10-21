@@ -18,6 +18,6 @@ export const login = async (email: string, password: string) => {
     return data
   
   } catch (error) {
-      console.error('Error en el servicio de login:', error); 
+      console.error('Error en el servicio de login:', error)
   }
 }
