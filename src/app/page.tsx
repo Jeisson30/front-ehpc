@@ -1,5 +1,5 @@
 // /src/app/page.tsx
-import Login from '@/app/components/Login';
+import Login from '@/app/components/auth/Login';
 
 export default function Home() {
   return (
