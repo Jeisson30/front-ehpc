@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { TextField, Button, Typography } from '@mui/material'
 import { login } from './services/authService'
 import { useRouter } from 'next/navigation'
+import Swal from 'sweetalert2'
 
 const Login = () => {
 
@@ -15,17 +16,35 @@ const Login = () => {
   const sendLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     
     event.preventDefault();
-
     try {
 
-      const result = await login( email, password )
-      console.log('respuesta: ', result.message)
-      router.push('/dashboard')
-      
+      const res = await login( email, password )
+      console.log('respuesta: ', JSON.stringify(res))
+
+      if (!email  || !password) {
+        Swal({
+          title: 'Alerta',
+          text: res.message,
+          type: 'warning'
+        })
+        return
+      }
+      if (res.status) {
+        Swal({
+          title: res.message,
+          type: 'success'
+        })
+        router.push('/dashboard')
+      } else {
+        Swal({
+          title: 'Error',
+          text: res.message,
+          type: 'error'
+        })
+      }      
     } catch (error) {
         console.log('error en el login: ', error)       
     }
-
   };
 
   const goToRegister = () => {
